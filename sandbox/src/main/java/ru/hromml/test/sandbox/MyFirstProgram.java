@@ -4,7 +4,8 @@ public class MyFirstProgram {
 	public static void main(String[] args) {
 		System.out.println("Hello world");
 		int x=6;
-		System.out.println("Plosh kv so storonoi "+x+" = "+(x*x));
+		int y=x*x;
+		System.out.println("Plosh kv so storonoi "+x+" = "+y);
 
 	}
 }
