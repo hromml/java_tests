@@ -5,7 +5,8 @@
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/sandbox" />
-        <option name="gradleHome" value="$PROJECT_DIR$/../../gradle-3.4" />
+        <option name="gradleHome" value="$PROJECT_DIR$/sandbox/gradle/wrapper" />
+        <option name="gradleJvm" value="#JAVA_HOME" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/sandbox" />
