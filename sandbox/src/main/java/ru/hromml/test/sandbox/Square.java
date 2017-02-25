@@ -5,7 +5,10 @@ package ru.hromml.test.sandbox;
  */
 public class Square {
     public double l;
-    public Square(double len){
-        l = len;
+    public Square(double l){
+        this.l = l;
+    }
+    public double area(){
+        return this.l*this.l;
     }
 }
