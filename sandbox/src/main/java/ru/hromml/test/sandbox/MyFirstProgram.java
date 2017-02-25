@@ -5,11 +5,8 @@ public class MyFirstProgram {
 		hello("world");
 		hello("sas");
 		hello("wow");
-		Square s= new Square();
-		s.l = 5;
-		Rectangle r = new Rectangle();
-		r.l1 = 6;
-		r.l2 = 7;
+		Square s= new Square(5);
+		Rectangle r = new Rectangle(6,7);
 		System.out.println("ploshad = "+area(s)+" and "+area(r));
 	}
 	public static void hello(String newstring){
