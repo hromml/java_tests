@@ -5,17 +5,20 @@ public class MyFirstProgram {
 		hello("world");
 		hello("sas");
 		hello("wow");
-		double length = 5;
-		double length2 = 6;
-		System.out.println("ploshad = "+area(length)+" and "+area(length,length2));
+		Square s= new Square();
+		s.l = 5;
+		Rectangle r = new Rectangle();
+		r.l1 = 6;
+		r.l2 = 7;
+		System.out.println("ploshad = "+area(s)+" and "+area(r));
 	}
 	public static void hello(String newstring){
 		System.out.println("Hello, "+newstring);
 	}
-	public static double area(double l){
-		return l*l;
+	public static double area(Square s){
+		return s.l*s.l;
 	}
-	public static double area(double l1,double l2){
-		return l1*l2;
+	public static double area(Rectangle r){
+		return r.l1*r.l2;
 	}
 }
