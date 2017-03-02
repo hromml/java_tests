@@ -1,5 +1,6 @@
 package ru.hromml.test.addbook.tests;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import ru.hromml.test.addbook.appmanager.ApplicationManager;
@@ -20,5 +21,6 @@ public class TestBase {
     public void tearDown() {
         app.stop();
     }
+
 
 }
