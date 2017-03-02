@@ -1,4 +1,4 @@
-package ru.hromml.test.addbook;
+package ru.hromml.test.addbook.model;
 
 public class GroupData {
     private final String groupname;

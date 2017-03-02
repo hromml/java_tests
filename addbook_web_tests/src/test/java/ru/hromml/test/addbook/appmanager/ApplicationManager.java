@@ -1,18 +1,17 @@
-package ru.hromml.test.addbook;
+package ru.hromml.test.addbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import ru.hromml.test.addbook.model.ContactData;
+import ru.hromml.test.addbook.model.GroupData;
 
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by HROM on 01.03.2017.
+ * Created by HROM on 02.03.2017.
  */
-public class TestBase {
-
+public class ApplicationManager {
     FirefoxDriver wd;
 
     public static boolean isAlertPresent(FirefoxDriver wd) {
@@ -24,8 +23,7 @@ public class TestBase {
         }
     }
 
-    @BeforeMethod
-    public void setUp() throws Exception {
+    public void init() {
         System.setProperty("webdriver.gecko.driver","C:\\Games\\geckodriver.exe");
         wd = new FirefoxDriver();
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
@@ -44,11 +42,11 @@ public class TestBase {
         wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
     }
 
-    protected void submitGroupCreation() {
+    public void submitGroupCreation() {
         wd.findElement(By.name("submit")).click();
     }
 
-    protected void fillGroupFields(GroupData groupData) {
+    public void fillGroupFields(GroupData groupData) {
         wd.findElement(By.name("group_name")).click();
         wd.findElement(By.name("group_name")).clear();
         wd.findElement(By.name("group_name")).sendKeys(groupData.getGroupname());
@@ -60,40 +58,39 @@ public class TestBase {
         wd.findElement(By.name("group_footer")).sendKeys(groupData.getGroupfooter());
     }
 
-    protected void initGroupCreation() {
+    public void initGroupCreation() {
         wd.findElement(By.name("new")).click();
     }
 
-    protected void gotoGroupPage() {
+    public void gotoGroupPage() {
         wd.findElement(By.linkText("groups")).click();
     }
 
-    protected void returnGroupPage() {
+    public void returnGroupPage() {
         wd.findElement(By.linkText("group page")).click();
     }
 
-    @AfterMethod
-    public void tearDown() {
+    public void stop() {
         wd.quit();
     }
 
-    protected void deleteChoosedGroup() {
+    public void deleteChoosedGroup() {
         wd.findElement(By.name("delete")).click();
     }
 
-    protected void checkDeletingGroup() {
+    public void checkDeletingGroup() {
         wd.findElement(By.name("selected[]")).click();
     }
 
-    protected void returnHomePage() {
+    public void returnHomePage() {
         wd.findElement(By.linkText("home page")).click();
     }
 
-    protected void submitContactCreation() {
+    public void submitContactCreation() {
         wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
     }
 
-    protected void fillContactFields(ContactData contactData) {
+    public void fillContactFields(ContactData contactData) {
         wd.findElement(By.name("firstname")).click();
         wd.findElement(By.name("firstname")).clear();
         wd.findElement(By.name("firstname")).sendKeys(contactData.getContactname());
@@ -108,7 +105,7 @@ public class TestBase {
         wd.findElement(By.name("email")).sendKeys(contactData.getContactmail());
     }
 
-    protected void initContactCreation() {
+    public void initContactCreation() {
         wd.findElement(By.linkText("add new")).click();
     }
 }

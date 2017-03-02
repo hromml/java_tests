@@ -1,4 +1,4 @@
-package ru.hromml.test.addbook;
+package ru.hromml.test.addbook.model;
 
 public class ContactData {
     private final String contactname;
