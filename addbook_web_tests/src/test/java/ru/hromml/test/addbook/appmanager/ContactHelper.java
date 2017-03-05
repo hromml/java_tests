@@ -30,12 +30,21 @@ public class ContactHelper extends HelperBase{
 
     public void submitDeletingContact() {
         click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
+        wd.switchTo().alert().accept();
     }
 
     public void chooseDeletingContact() {
         if (!wd.findElement(By.id("8")).isSelected()) {
             wd.findElement(By.id("8")).click();
         }
+
     }
 
+    public void editContactButton() {
+        click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+    }
+
+    public void updateContactButton() {
+        click(By.name("update"));
+    }
 }

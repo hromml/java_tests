@@ -35,7 +35,22 @@ public class GroupHelper extends HelperBase{
         click(By.name("delete"));
     }
 
-    public void checkDeletingGroup() {
-        click(By.name("selected[]"));
+
+    public void openGroupPage() {
+        click(By.linkText("groups"));
     }
+
+    public void choosingGroup() {
+        click(By.name("selected[]"));
+
+    }
+
+    public void editGroupButton() {
+        click(By.name("edit"));
+    }
+
+    public void updateGroupButton() {
+        click(By.name("update"));
+    }
+
 }
