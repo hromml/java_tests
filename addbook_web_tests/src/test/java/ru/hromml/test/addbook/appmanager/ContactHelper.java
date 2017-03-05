@@ -34,8 +34,8 @@ public class ContactHelper extends HelperBase{
     }
 
     public void chooseDeletingContact() {
-        if (!wd.findElement(By.id("8")).isSelected()) {
-            wd.findElement(By.id("8")).click();
+        if (!wd.findElement(By.id("9")).isSelected()) {
+            wd.findElement(By.id("9")).click();
         }
 
     }
