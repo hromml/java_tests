@@ -2,15 +2,18 @@ package ru.hromml.test.addbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import java.util.Objects;
 
 /**
  * Created by HROM on 05.03.2017.
  */
 public class HelperBase {
-    protected FirefoxDriver wd;
+    protected WebDriver wd;
 
-    public HelperBase(FirefoxDriver wd) {
+    public HelperBase(WebDriver wd) {
         this.wd=wd;
     }
 
@@ -20,8 +23,13 @@ public class HelperBase {
 
     protected void type(By locator, String text) {
         click(locator);
-        wd.findElement(locator).clear();
-        wd.findElement(locator).sendKeys(text);
+        if (text!=null){
+            String existingText= wd.findElement(locator).getAttribute("value");
+            if (!Objects.equals(text, existingText)) {
+                wd.findElement(locator).clear();
+                wd.findElement(locator).sendKeys(text);
+            }
+        }
     }
 
     public boolean isAlertPresent() {
