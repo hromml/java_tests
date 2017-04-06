@@ -1,8 +1,12 @@
 package ru.hromml.test.addbook.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ru.hromml.test.addbook.model.ContactData;
 
 /**
@@ -18,12 +22,19 @@ public class ContactHelper extends HelperBase{
         click(By.xpath("//div[@id='content']/form/input[21]"));
     }
 
-    public void fillContactFields(ContactData contactData) {
+    public void fillContactFields(ContactData contactData, boolean creationcontact) {
         type(By.name("firstname"),contactData.getContactname());
         type(By.name("lastname"),contactData.getContactlastname());
         type(By.name("mobile"),contactData.getContactmobile());
         type(By.name("email"),contactData.getContactmail());
+        if(creationcontact){
+            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getContactGroup());
+        }
+        else {
+            Assert.assertFalse(isSelectedPresent(By.name("new_group")));
+        }
     }
+
 
     public void initContactCreation() {
         click(By.linkText("add new"));
