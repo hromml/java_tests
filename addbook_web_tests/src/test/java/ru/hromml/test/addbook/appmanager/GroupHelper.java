@@ -8,7 +8,7 @@ import ru.hromml.test.addbook.model.GroupData;
 /**
  * Created by HROM on 02.03.2017.
  */
-public class GroupHelper extends HelperBase{
+public class GroupHelper extends HelperBase {
 
     public GroupHelper(WebDriver wd) {
         super(wd);
@@ -54,4 +54,14 @@ public class GroupHelper extends HelperBase{
         click(By.name("update"));
     }
 
+    public void createAGroup(GroupData group) {
+        initGroupCreation();
+        fillGroupFields(group);
+        submitGroupCreation();
+        returnGroupPage();
+    }
+
+    public boolean isThereAGroup() {
+        return isSelectedPresent(By.name("selected[]"));
+    }
 }

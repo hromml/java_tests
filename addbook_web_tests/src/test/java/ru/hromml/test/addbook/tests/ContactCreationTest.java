@@ -3,7 +3,7 @@ package ru.hromml.test.addbook.tests;
 import org.testng.annotations.Test;
 import ru.hromml.test.addbook.model.ContactData;
 
-public class ContactCreationTest extends TestBase{
+public class ContactCreationTest extends TestBase {
 
     @Test
     public void testContactCreation() {

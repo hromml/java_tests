@@ -24,7 +24,7 @@ public class ApplicationManager {
     private GroupHelper groupHelper;
 
     public ApplicationManager(String browser) {
-        this.browser=browser;
+        this.browser = browser;
     }
 
     public void init() {
@@ -32,14 +32,14 @@ public class ApplicationManager {
         if (Objects.equals(browser, BrowserType.FIREFOX)) {
             System.setProperty("webdriver.gecko.driver", "C:\\Games\\geckodriver.exe");
             wd = new FirefoxDriver();
-        } else if (Objects.equals(browser, BrowserType.CHROME)){
+        } else if (Objects.equals(browser, BrowserType.CHROME)) {
             System.setProperty("webdriver.chrome.driver", "C:\\Games\\chromedriver.exe");
             wd = new ChromeDriver();
         } else if (Objects.equals(browser, BrowserType.IE)) {
             System.setProperty("webdriver.ie.driver", "C:\\Games\\IEDriverServer.exe");
             wd = new InternetExplorerDriver();
         }
-      //  wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        //  wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/group.php");
         groupHelper = new GroupHelper(wd);
         navigationHelper = new NavigationHelper(wd);

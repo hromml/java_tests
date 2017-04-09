@@ -12,7 +12,7 @@ import ru.hromml.test.addbook.model.ContactData;
 /**
  * Created by HROM on 02.03.2017.
  */
-public class ContactHelper extends HelperBase{
+public class ContactHelper extends HelperBase {
 
     public ContactHelper(WebDriver wd) {
         super(wd);
@@ -23,14 +23,13 @@ public class ContactHelper extends HelperBase{
     }
 
     public void fillContactFields(ContactData contactData, boolean creationcontact) {
-        type(By.name("firstname"),contactData.getContactname());
-        type(By.name("lastname"),contactData.getContactlastname());
-        type(By.name("mobile"),contactData.getContactmobile());
-        type(By.name("email"),contactData.getContactmail());
-        if(creationcontact){
+        type(By.name("firstname"), contactData.getContactname());
+        type(By.name("lastname"), contactData.getContactlastname());
+        type(By.name("mobile"), contactData.getContactmobile());
+        type(By.name("email"), contactData.getContactmail());
+        if (creationcontact) {
             new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getContactGroup());
-        }
-        else {
+        } else {
             Assert.assertFalse(isSelectedPresent(By.name("new_group")));
         }
     }
